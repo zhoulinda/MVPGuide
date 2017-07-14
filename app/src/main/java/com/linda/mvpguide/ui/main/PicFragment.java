@@ -1,5 +1,6 @@
 package com.linda.mvpguide.ui.main;
 
+import com.linda.mvpguide.R;
 import com.linda.mvpguide.base.BaseFrameFragment;
 
 /**
@@ -10,7 +11,7 @@ public class PicFragment extends BaseFrameFragment {
 
     @Override
     protected int getContentResId() {
-        return 0;
+        return R.layout.fragment_pic;
     }
 
     @Override

@@ -38,11 +38,9 @@ public abstract class BaseFragment extends RxFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         initInjector();
-        if (rootView == null) {
-            rootView = inflater.inflate(getLayoutResId(), container, false);
-            initView();
-            initData();
-        }
+        rootView = inflater.inflate(getLayoutResId(), container, false);
+        initView();
+        initData();
         return rootView;
     }
 
