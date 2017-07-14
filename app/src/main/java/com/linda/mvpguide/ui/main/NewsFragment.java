@@ -1,10 +1,11 @@
 package com.linda.mvpguide.ui.main;
 
-import com.trello.rxlifecycle2.components.support.RxFragment;
+import com.linda.mvpguide.base.BaseFragment;
 
 /**
- * Created by linda on 2017/7/10.
+ * 作者：linda on 2017/7/14 15:14
+ * 邮箱：
  */
 
-public class NewsFragment extends RxFragment {
+public class NewsFragment extends BaseFragment {
 }

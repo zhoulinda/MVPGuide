@@ -58,7 +58,7 @@ public class EmptyLayout extends LinearLayout {
             }
         });
         addView(view, params);
-        setErrorType(NETWORK_LOADING);
+        setErrorType(HIDE_LAYOUT);
     }
 
     public void setErrorType(int i) {
@@ -76,12 +76,7 @@ public class EmptyLayout extends LinearLayout {
                 if (!NetUtils.isNetworkAvailable(AppApplication.getContext())) {
                     img.setBackgroundResource(R.drawable.icon_net_error);
                     text.setText(R.string.network_anomalies);
-                }
-//                else if (TextUtils.isEmpty(TokenUtils.getToken(context))) {
-//                    tv.setText("您还未登录");
-//                    img.setBackgroundResource(R.mipmap.bg_icon_msg_dcnn);
-//                }
-                else {
+                } else {
                     img.setBackgroundResource(R.drawable.icon_net_error);
                     text.setText(R.string.net_error);
                 }

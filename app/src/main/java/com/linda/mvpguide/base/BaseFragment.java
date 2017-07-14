@@ -3,8 +3,9 @@ package com.linda.mvpguide.base;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 
 /**
- * Created by linda on 2017/7/10.
+ * 作者：linda on 2017/7/14 11:26
+ * 邮箱：
  */
 
-public class BaseFragment extends RxFragment {
+public class BaseFragment extends RxFragment{
 }

@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import com.linda.mvpguide.app.AppApplication;
 import com.linda.mvpguide.utils.LogUtils;
 import com.linda.mvpguide.utils.NetUtils;
-import com.linda.mvpguide.utils.TokenUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,7 +18,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -94,7 +93,7 @@ public class ServiceFactory {
             @Override
             public Response intercept(Chain chain) throws IOException {
                 Request build = chain.request().newBuilder()
-                        .addHeader("X-Access-Token", TokenUtils.getToken())
+//                        .addHeader("X-Access-Token", TokenUtils.getToken())
                         .build();
                 return chain.proceed(build);
             }
@@ -113,8 +112,8 @@ public class ServiceFactory {
 //        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").serializeNulls().create();
         retrofit = new Retrofit.Builder()
                 .client(okHttpClient)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .baseUrl(ApiService.SERVICE_HOST)
                 .build();
         apiService = retrofit.create(ApiService.class);

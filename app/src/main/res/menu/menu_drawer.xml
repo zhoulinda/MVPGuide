@@ -1,19 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/news"
-        android:icon="@mipmap/ic_launcher_round"
-        android:title="新闻" />
+    <item android:title="兴趣">
+        <menu>
+            <item
+                android:id="@+id/news"
+                android:checkable="true"
+                android:icon="@mipmap/ic_launcher_round"
+                android:title="@string/news" />
+            <item
+                android:id="@+id/pic"
+                android:checkable="true"
+                android:icon="@mipmap/ic_launcher_round"
+                android:title="@string/pic" />
+            <item
+                android:id="@+id/video"
+                android:icon="@mipmap/ic_launcher_round"
+                android:title="@string/video" />
+        </menu>
+    </item>
 
-    <item
-        android:id="@+id/pic"
-        android:icon="@mipmap/ic_launcher_round"
-        android:title="图片" />
+    <item android:title="选项">
 
-    <item
-        android:id="@+id/video"
-        android:icon="@mipmap/ic_launcher_round"
-        android:title="视频" />
-
+        <menu>
+            <item
+                android:id="@+id/store"
+                android:icon="@mipmap/ic_launcher_round"
+                android:title="@string/store" />
+            <item
+                android:id="@+id/setting"
+                android:icon="@mipmap/ic_launcher_round"
+                android:title="@string/setting" />
+        </menu>
+    </item>
 </menu>

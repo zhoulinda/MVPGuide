@@ -6,7 +6,5 @@ package com.linda.mvpguide.app;
 
 public interface AppConfig {
 
-    String LOCAL_CACHE_FILE_NAME = "pos_cache";
-
-    String TOKEN = "topsales_pos_token";
+    String LOCAL_CACHE_FILE_NAME = "mvp_guide_cache";
 }
