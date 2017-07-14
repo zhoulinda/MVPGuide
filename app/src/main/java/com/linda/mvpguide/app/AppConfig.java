@@ -7,4 +7,6 @@ package com.linda.mvpguide.app;
 public interface AppConfig {
 
     String LOCAL_CACHE_FILE_NAME = "mvp_guide_cache";
+
+    String JU_HE_KEY = "44a406739213d5e69918055dc8c943d4";
 }
