@@ -7,6 +7,8 @@ import android.os.Handler;
 import com.linda.mvpguide.di.components.ApplicationComponent;
 import com.linda.mvpguide.di.components.DaggerApplicationComponent;
 import com.linda.mvpguide.di.modules.ApplicationModule;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
 
 /**
  * Created by zhoulinda on 17/5/11.
@@ -21,7 +23,13 @@ public class AppApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        initLogger();
         initInjector();
+
+    }
+
+    private void initLogger() {
+        Logger.addLogAdapter(new AndroidLogAdapter());
     }
 
     /**

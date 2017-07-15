@@ -19,21 +19,21 @@ public abstract class RxSubscriber<T> extends ResourceSubscriber<T> {
     private String mErrorMsg;
     private boolean isShowErrorState = true;
 
-    protected RxSubscriber(IView view){
+    protected RxSubscriber(IView view) {
         this.mView = view;
     }
 
-    protected RxSubscriber(IView view, String errorMsg){
+    protected RxSubscriber(IView view, String errorMsg) {
         this.mView = view;
         this.mErrorMsg = errorMsg;
     }
 
-    protected RxSubscriber(IView view, boolean isShowErrorState){
+    protected RxSubscriber(IView view, boolean isShowErrorState) {
         this.mView = view;
         this.isShowErrorState = isShowErrorState;
     }
 
-    protected RxSubscriber(IView view, String errorMsg, boolean isShowErrorState){
+    protected RxSubscriber(IView view, String errorMsg, boolean isShowErrorState) {
         this.mView = view;
         this.mErrorMsg = errorMsg;
         this.isShowErrorState = isShowErrorState;
@@ -46,6 +46,7 @@ public abstract class RxSubscriber<T> extends ResourceSubscriber<T> {
 
     @Override
     public void onError(Throwable e) {
+        LogUtil.e(e.toString());
         if (mView == null) {
             return;
         }
@@ -57,7 +58,6 @@ public abstract class RxSubscriber<T> extends ResourceSubscriber<T> {
             mView.showErrorMsg("数据加载失败ヽ(≧Д≦)ノ");
         } else {
             mView.showErrorMsg("未知错误ヽ(≧Д≦)ノ");
-            LogUtil.d(e.toString());
         }
         if (isShowErrorState) {
             mView.stateError();

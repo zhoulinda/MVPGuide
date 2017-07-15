@@ -14,35 +14,47 @@ public class LogUtil {
     private static boolean isDebug = true;
     private static final String TAG = AppApplication.getContext().getPackageName();
 
-    public static void e(String tag,Object o) {
-        if(isDebug) {
-            Logger.e(tag, o);
+    public static void e(String tag, String msg) {
+        if (isDebug) {
+            Logger.t(tag).e(msg);
         }
     }
 
-    public static void e(Object o) {
-        LogUtil.e(TAG,o);
+    public static void e(String msg) {
+        LogUtil.e(TAG, msg);
     }
 
-    public static void w(String tag,Object o) {
-        if(isDebug) {
-            Logger.w(tag, o);
+    public static void w(String tag, String msg) {
+        if (isDebug) {
+            Logger.t(tag).w(msg);
         }
     }
 
-    public static void w(Object o) {
-        LogUtil.w(TAG,o);
+    public static void w(String msg) {
+        LogUtil.w(TAG, msg);
+    }
+
+    public static void d(String tag, String msg) {
+        if (isDebug) {
+            Logger.t(tag).d(msg);
+        }
     }
 
     public static void d(String msg) {
-        if(isDebug) {
+        if (isDebug) {
             Logger.d(msg);
         }
     }
 
     public static void i(String msg) {
-        if(isDebug) {
+        if (isDebug) {
             Logger.i(msg);
+        }
+    }
+
+    public static void i(String tag, String msg) {
+        if (isDebug) {
+            Logger.t(tag).i(msg);
         }
     }
 }

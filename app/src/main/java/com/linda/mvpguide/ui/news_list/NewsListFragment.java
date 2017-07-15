@@ -34,6 +34,7 @@ public class NewsListFragment extends BaseFrameFragment<NewsListPresenter> imple
         NewsListFragment fragment = new NewsListFragment();
         Bundle bundle = new Bundle();
         bundle.putString(AppConfig.NEWS_TYPE_KEY, type);
+        fragment.setArguments(bundle);
         return fragment;
     }
 
