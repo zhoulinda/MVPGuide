@@ -5,4 +5,13 @@ package com.linda.mvpguide.base;
  */
 
 public interface IView {
+
+    void showErrorMsg(String msg);
+
+    void stateLoading();
+
+    void stateError();
+
+    void stateEmpty();
+
 }

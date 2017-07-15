@@ -52,4 +52,5 @@ public class NewsFragment extends BaseFragment {
     protected void initData() {
 
     }
+
 }

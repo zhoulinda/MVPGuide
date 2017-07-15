@@ -24,9 +24,6 @@ android {
         enabled = true;
     }
 
-//    packagingOptions {
-//        exclude 'META-INF/rxjava.properties'
-//    }
 }
 
 dependencies {
@@ -50,4 +47,5 @@ dependencies {
     compile 'com.google.dagger:dagger:2.6'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.6'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.17'
+    compile 'com.orhanobut:logger:2.1.1'
 }

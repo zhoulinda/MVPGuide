@@ -9,6 +9,7 @@ import com.linda.mvpguide.R;
 import com.linda.mvpguide.adapter.NewsListAdapter;
 import com.linda.mvpguide.app.AppConfig;
 import com.linda.mvpguide.base.BaseFrameFragment;
+import com.linda.mvpguide.bean.News;
 import com.linda.mvpguide.databinding.FragmentNewsListBinding;
 import com.linda.mvpguide.di.components.DaggerNewsListComponent;
 import com.linda.mvpguide.di.modules.NewsListModule;
@@ -65,6 +66,10 @@ public class NewsListFragment extends BaseFrameFragment<NewsListPresenter> imple
 
     @Override
     protected void initData() {
+        mPresenter.getNewsData(type);
+    }
 
+    public void showNewsData(News.ResultBean resultBean) {
+        mAdapter.setNewData(resultBean.getData());
     }
 }

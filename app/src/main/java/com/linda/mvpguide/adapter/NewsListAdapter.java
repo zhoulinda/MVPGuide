@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.linda.mvpguide.R;
 import com.linda.mvpguide.bean.News;
 
 /**
@@ -11,14 +12,14 @@ import com.linda.mvpguide.bean.News;
  * 邮箱：
  */
 
-public class NewsListAdapter extends BaseQuickAdapter<News,BaseViewHolder>{
+public class NewsListAdapter extends BaseQuickAdapter<News.ResultBean.DataBean,BaseViewHolder>{
 
     public NewsListAdapter(Context context) {
-
+        super(R.layout.adapter_news);
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, News item) {
-
+    protected void convert(BaseViewHolder helper, News.ResultBean.DataBean item) {
+        helper.setText(R.id.title,item.getTitle());
     }
 }

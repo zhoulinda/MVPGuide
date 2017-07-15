@@ -59,4 +59,23 @@ public abstract class BaseFrameFragment<T> extends BaseFragment {
 
     protected abstract int getContentResId();
 
+    @Override
+    public void showErrorMsg(String msg) {
+
+    }
+
+    @Override
+    public void stateLoading() {
+
+    }
+
+    @Override
+    public void stateError() {
+
+    }
+
+    @Override
+    public void stateEmpty() {
+
+    }
 }

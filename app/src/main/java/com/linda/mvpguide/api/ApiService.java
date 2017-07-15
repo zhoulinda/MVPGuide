@@ -1,5 +1,6 @@
 package com.linda.mvpguide.api;
 
+import com.linda.mvpguide.bean.HttpResult;
 import com.linda.mvpguide.bean.News;
 
 import io.reactivex.Flowable;
@@ -16,6 +17,6 @@ public interface ApiService {
 
     //新闻
     @GET("toutiao/index")
-    Flowable<News> getNewsData(@Query("type") String type, @Query("key") String key);
+    Flowable<HttpResult<News.ResultBean>> getNewsData(@Query("type") String type, @Query("key") String key);
 }
 

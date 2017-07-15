@@ -19,7 +19,7 @@ import com.trello.rxlifecycle2.components.support.RxFragment;
  * 邮箱：
  */
 
-public abstract class BaseFragment extends RxFragment {
+public abstract class BaseFragment extends RxFragment implements IView{
 
     protected final String TAG = this.getClass().getName();
     protected View rootView;
@@ -93,6 +93,26 @@ public abstract class BaseFragment extends RxFragment {
     }
 
     protected void onMenuItemClick(MenuItem item) {
+
+    }
+
+    @Override
+    public void showErrorMsg(String msg) {
+
+    }
+
+    @Override
+    public void stateLoading() {
+
+    }
+
+    @Override
+    public void stateError() {
+
+    }
+
+    @Override
+    public void stateEmpty() {
 
     }
 }
