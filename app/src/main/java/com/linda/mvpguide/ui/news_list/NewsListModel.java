@@ -16,7 +16,7 @@ import io.reactivex.Flowable;
 public class NewsListModel implements NewsListContract.Model {
 
     @Override
-    public Flowable<News.ResultBean> getNewsData(String type) {
+    public Flowable<News.ResultBean> getNewsData(String type, boolean isRefresh) {
         return ServiceFactory.getInstance().getNewsData(type, AppConfig.JU_HE_KEY)
                 .compose(RxHelper.<News.ResultBean>handleResult())
                 .compose(RxScheduler.<News.ResultBean>io_main());

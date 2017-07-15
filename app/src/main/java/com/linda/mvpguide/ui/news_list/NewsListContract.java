@@ -15,14 +15,19 @@ import io.reactivex.Flowable;
 public interface NewsListContract {
 
     interface View extends IView {
-
+        void showNewsData(News.ResultBean resultBean);
     }
 
     interface Model extends IModel {
-        Flowable<News.ResultBean> getNewsData(String type);
+        Flowable<News.ResultBean> getNewsData(String type, boolean isRefresh);
     }
 
     interface Presenter extends IPresenter {
-        void getNewsData(String type);
+        /**
+         * 请求对应类型的新闻数据
+         * @param type
+         * @param isRefresh 是否为主动刷新
+         */
+        void getNewsData(String type, boolean isRefresh);
     }
 }

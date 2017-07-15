@@ -22,12 +22,14 @@ public class NewsListPresenter implements NewsListContract.Presenter {
     }
 
     @Override
-    public void getNewsData(String type) {
-        mModel.getNewsData(type)
+    public void getNewsData(String type, final boolean isRefresh) {
+        mModel.getNewsData(type, isRefresh)
                 .doOnNext(new Consumer<News.ResultBean>() {
                     @Override
                     public void accept(@NonNull News.ResultBean resultBean) throws Exception {
-                        mView.stateLoading();
+                        if (!isRefresh) {
+                            mView.stateLoading();
+                        }
                     }
                 })
                 .compose(mView.<News.ResultBean>bindToLifecycle())

@@ -74,7 +74,7 @@ public class NewsListFragment extends BaseFrameFragment<NewsListPresenter>
 
     @Override
     protected void initData() {
-        mPresenter.getNewsData(type);
+        mPresenter.getNewsData(type, false);
     }
 
     public void showNewsData(News.ResultBean resultBean) {
@@ -90,9 +90,7 @@ public class NewsListFragment extends BaseFrameFragment<NewsListPresenter>
 
     @Override
     public void onRefresh() {
-        if (mBinding.swipeRefreshLayout.isRefreshing())
-            return;
-        initData();
+        mPresenter.getNewsData(type, true);
     }
 
     @Override

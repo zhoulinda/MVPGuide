@@ -3,6 +3,7 @@ package com.linda.mvpguide.api;
 import android.support.annotation.NonNull;
 
 import com.linda.mvpguide.app.AppApplication;
+import com.linda.mvpguide.utils.LogUtil;
 import com.linda.mvpguide.utils.NetUtils;
 
 import java.io.File;
@@ -80,7 +81,7 @@ public class ServiceFactory {
         HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
             @Override
             public void log(String message) {
-//                LogUtil.e(message);
+                LogUtil.e(message);
             }
         });
         logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
