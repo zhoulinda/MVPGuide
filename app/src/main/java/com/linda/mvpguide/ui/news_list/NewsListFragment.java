@@ -3,8 +3,11 @@ package com.linda.mvpguide.ui.news_list;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.View;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.linda.mvpguide.R;
 import com.linda.mvpguide.adapter.NewsListAdapter;
 import com.linda.mvpguide.app.AppConfig;
@@ -21,7 +24,9 @@ import javax.inject.Inject;
  * 邮箱：
  */
 
-public class NewsListFragment extends BaseFrameFragment<NewsListPresenter> implements NewsListContract.View {
+public class NewsListFragment extends BaseFrameFragment<NewsListPresenter>
+        implements NewsListContract.View, SwipeRefreshLayout.OnRefreshListener,
+        BaseQuickAdapter.OnItemClickListener {
 
     private String type;
 
@@ -60,9 +65,11 @@ public class NewsListFragment extends BaseFrameFragment<NewsListPresenter> imple
     @Override
     protected void initView() {
         mBinding = DataBindingUtil.bind(mContentView);
+        mBinding.swipeRefreshLayout.setOnRefreshListener(this);
         mBinding.recyclerView.setHasFixedSize(true);
         mBinding.recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mBinding.recyclerView.setAdapter(mAdapter);
+        mAdapter.setOnItemClickListener(this);
     }
 
     @Override
@@ -71,6 +78,24 @@ public class NewsListFragment extends BaseFrameFragment<NewsListPresenter> imple
     }
 
     public void showNewsData(News.ResultBean resultBean) {
+        mBinding.swipeRefreshLayout.setRefreshing(false);
         mAdapter.setNewData(resultBean.getData());
+    }
+
+    @Override
+    public void stateError() {
+        super.stateError();
+        mBinding.swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void onRefresh() {
+        if (mBinding.swipeRefreshLayout.isRefreshing())
+            return;
+        initData();
+    }
+
+    @Override
+    public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
     }
 }

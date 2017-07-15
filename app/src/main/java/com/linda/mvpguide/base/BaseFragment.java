@@ -115,4 +115,9 @@ public abstract class BaseFragment extends RxFragment implements IView{
     public void stateEmpty() {
 
     }
+
+    @Override
+    public void stateSuccess() {
+
+    }
 }

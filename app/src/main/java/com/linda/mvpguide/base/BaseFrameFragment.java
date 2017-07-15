@@ -66,16 +66,21 @@ public abstract class BaseFrameFragment<T> extends BaseFragment {
 
     @Override
     public void stateLoading() {
-
+        mEmptyLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
     }
 
     @Override
     public void stateError() {
-
+        mEmptyLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
     }
 
     @Override
     public void stateEmpty() {
+        mEmptyLayout.setErrorType(EmptyLayout.NODATA);
+    }
 
+    @Override
+    public void stateSuccess() {
+        mEmptyLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
     }
 }
