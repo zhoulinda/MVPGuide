@@ -1,5 +1,6 @@
 package com.linda.mvpguide.ui.news_list;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import com.linda.mvpguide.bean.News;
 import com.linda.mvpguide.databinding.FragmentNewsListBinding;
 import com.linda.mvpguide.di.components.DaggerNewsListComponent;
 import com.linda.mvpguide.di.modules.NewsListModule;
+import com.linda.mvpguide.ui.NewsDetailActivity;
 
 import javax.inject.Inject;
 
@@ -95,5 +97,9 @@ public class NewsListFragment extends BaseFrameFragment<NewsListPresenter>
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+        Intent intent = new Intent(mContext, NewsDetailActivity.class);
+        intent.putExtra(AppConfig.NEWS_DETAIL_URL, ((News.ResultBean.DataBean) adapter.getData()
+                .get(position)).getUrl());
+        startActivity(intent);
     }
 }

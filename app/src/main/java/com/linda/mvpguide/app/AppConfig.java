@@ -11,4 +11,6 @@ public interface AppConfig {
     String JU_HE_KEY = "44a406739213d5e69918055dc8c943d4";
 
     String NEWS_TYPE_KEY = "news_type_key";
+
+    String NEWS_DETAIL_URL = "news_detail_url";
 }
