@@ -10,7 +10,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="video" />
+            android:text="video"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp" />
 
     </LinearLayout>
 </layout>
