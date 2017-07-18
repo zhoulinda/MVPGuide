@@ -24,8 +24,8 @@ public class AppApplication extends Application {
     public void onCreate() {
         super.onCreate();
         initLogger();
+        initDatabase();
         initInjector();
-
     }
 
     private void initLogger() {
@@ -59,10 +59,8 @@ public class AppApplication extends Application {
      * 初始化数据库
      */
     private void initDatabase() {
-//        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(getApplication(), DB_NAME);
-//        Database database = helper.getWritableDb();
-//        mDaoSession = new DaoMaster(database).newSession();
-//        NewsTypeDao.updateLocalData(getApplication(), mDaoSession);
-//        DownloadUtils.init(mDaoSession.getBeautyPhotoInfoDao());
+//        DaoMaster.DevOpenHelper devOpenHelper = new DaoMaster.DevOpenHelper(context, DB_NAME);
+//        DaoMaster mDaoMaster = new DaoMaster(devOpenHelper.getWritableDatabase());
+//        DaoSession mDaoSession = mDaoMaster.newSession();
     }
 }

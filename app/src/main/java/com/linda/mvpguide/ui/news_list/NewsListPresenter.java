@@ -3,6 +3,8 @@ package com.linda.mvpguide.ui.news_list;
 import com.linda.mvpguide.bean.News;
 import com.linda.mvpguide.rx.RxSubscriber;
 
+import org.reactivestreams.Subscription;
+
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
 
@@ -24,9 +26,10 @@ public class NewsListPresenter implements NewsListContract.Presenter {
     @Override
     public void getNewsData(String type, final boolean isRefresh) {
         mModel.getNewsData(type, isRefresh)
-                .doOnNext(new Consumer<News.ResultBean>() {
+                .compose(mView.<News.ResultBean>bindToLifecycle())
+                .doOnSubscribe(new Consumer<Subscription>() {
                     @Override
-                    public void accept(@NonNull News.ResultBean resultBean) throws Exception {
+                    public void accept(@NonNull Subscription subscription) throws Exception {
                         if (!isRefresh) {
                             mView.stateLoading();
                         }

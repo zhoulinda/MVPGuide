@@ -1,7 +1,6 @@
 package com.linda.mvpguide.ui.news_list;
 
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -26,7 +25,7 @@ import javax.inject.Inject;
  * 邮箱：
  */
 
-public class NewsListFragment extends BaseFrameFragment<NewsListPresenter>
+public class NewsListFragment extends BaseFrameFragment<NewsListPresenter, FragmentNewsListBinding>
         implements NewsListContract.View, SwipeRefreshLayout.OnRefreshListener,
         BaseQuickAdapter.OnItemClickListener {
 
@@ -34,8 +33,6 @@ public class NewsListFragment extends BaseFrameFragment<NewsListPresenter>
 
     @Inject
     NewsListAdapter mAdapter;
-
-    private FragmentNewsListBinding mBinding;
 
     public static Fragment newInstance(String type) {
         NewsListFragment fragment = new NewsListFragment();
@@ -66,7 +63,6 @@ public class NewsListFragment extends BaseFrameFragment<NewsListPresenter>
 
     @Override
     protected void initView() {
-        mBinding = DataBindingUtil.bind(mContentView);
         mBinding.swipeRefreshLayout.setOnRefreshListener(this);
         mBinding.recyclerView.setHasFixedSize(true);
         mBinding.recyclerView.setLayoutManager(new LinearLayoutManager(mContext));

@@ -1,5 +1,7 @@
 package com.linda.mvpguide.base;
 
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -17,7 +19,7 @@ import javax.inject.Inject;
  * 邮箱：
  */
 
-public abstract class BaseFrameFragment<T> extends BaseFragment {
+public abstract class BaseFrameFragment<T, E extends ViewDataBinding> extends BaseFragment<E> {
 
     protected EmptyLayout mEmptyLayout;
     protected View mContentView;
@@ -40,6 +42,7 @@ public abstract class BaseFrameFragment<T> extends BaseFragment {
                 }
             });
             mContentView = getContentView();
+            mBinding = DataBindingUtil.bind(mContentView);
             mContentContain.addView(mContentView);
             initView();
             initData();

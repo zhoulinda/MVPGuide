@@ -6,7 +6,7 @@ import android.text.TextUtils;
  * Created by zhoulinda on 17/5/25.
  */
 
-public class RegexUtils {
+public class RegexUtil {
 
     /**
      * 验证手机格式

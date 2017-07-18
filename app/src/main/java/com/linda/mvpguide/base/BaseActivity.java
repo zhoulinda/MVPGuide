@@ -9,7 +9,6 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.linda.mvpguide.R;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
@@ -20,7 +19,7 @@ import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 public abstract class BaseActivity<T extends ViewDataBinding> extends RxAppCompatActivity {
 
-    protected Activity _activity;
+    protected Activity mActivity;
     protected T mBinding;
     protected
     @Nullable
@@ -29,10 +28,8 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends RxAppCompa
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        _activity = this;
-        View rootView = View.inflate(this, getLayoutRedId(), null);
-        setContentView(rootView);
-        mBinding = DataBindingUtil.bind(rootView);
+        mActivity = this;
+        mBinding = DataBindingUtil.setContentView(mActivity, getLayoutRedId());
         mToolbar = mBinding.getRoot().findViewById(R.id.toolbar);
         setToolbarTitle(getToolbarTitle());
         setSupportActionBar(mToolbar);

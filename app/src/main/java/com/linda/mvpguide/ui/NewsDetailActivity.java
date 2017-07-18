@@ -41,6 +41,7 @@ public class NewsDetailActivity extends BaseActivity<ActivityNewsDetailBinding> 
     @Override
     protected void initData() {
         mBinding.webView.loadUrl(newsDetailUrl);
+
     }
 
 }

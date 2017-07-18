@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by yangbj on 15/9/24.
  */
-public class NetUtils {
+public class NetUtil {
 
     /**
      *   一、判断网络连接是否可用

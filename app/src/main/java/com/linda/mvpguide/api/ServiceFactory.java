@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 
 import com.linda.mvpguide.app.AppApplication;
 import com.linda.mvpguide.utils.LogUtil;
-import com.linda.mvpguide.utils.NetUtils;
+import com.linda.mvpguide.utils.NetUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -93,7 +93,7 @@ public class ServiceFactory {
             @Override
             public Response intercept(Chain chain) throws IOException {
                 Request build = chain.request().newBuilder()
-//                        .addHeader("X-Access-Token", TokenUtils.getToken())
+//                        .addHeader("access_token", "7cae738216364e7179207fb250cb528308fdeb22c85db3d3df14e1948ac4032f")
                         .build();
                 return chain.proceed(build);
             }
@@ -133,7 +133,7 @@ public class ServiceFactory {
      */
     @NonNull
     public static String getCacheControl() {
-        return NetUtils.isNetworkAvailable(AppApplication.getAppComponent().getContext()) ? CACHE_CONTROL_AGE : CACHE_CONTROL_CACHE;
+        return NetUtil.isNetworkAvailable(AppApplication.getAppComponent().getContext()) ? CACHE_CONTROL_AGE : CACHE_CONTROL_CACHE;
     }
 
     /**
@@ -145,13 +145,13 @@ public class ServiceFactory {
         public Response intercept(Chain chain) throws IOException {
             Request request = chain.request();
             String cacheControl = request.cacheControl().toString();
-            if (!NetUtils.isNetworkAvailable(AppApplication.getAppComponent().getContext())) {
+            if (!NetUtil.isNetworkAvailable(AppApplication.getAppComponent().getContext())) {
                 request = request.newBuilder()
                         .cacheControl(CacheControl.FORCE_CACHE)
                         .build();
             }
             Response originalResponse = chain.proceed(request);
-            if (NetUtils.isNetworkAvailable(AppApplication.getAppComponent().getContext())) {
+            if (NetUtil.isNetworkAvailable(AppApplication.getAppComponent().getContext())) {
                 //有网的时候读接口上的@Headers里的配置，你可以在这里进行统一的设置
 
                 return originalResponse.newBuilder()

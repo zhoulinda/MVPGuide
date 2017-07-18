@@ -1,7 +1,5 @@
 package com.linda.mvpguide.ui.main;
 
-import android.databinding.DataBindingUtil;
-
 import com.linda.mvpguide.R;
 import com.linda.mvpguide.adapter.NewsPagerAdapter;
 import com.linda.mvpguide.base.BaseFragment;
@@ -16,9 +14,8 @@ import javax.inject.Inject;
  * 邮箱：
  */
 
-public class NewsFragment extends BaseFragment {
+public class NewsFragment extends BaseFragment<FragmentNewsBinding> {
 
-    private FragmentNewsBinding mBinding;
     @Inject
     NewsPagerAdapter mAdapter;
 
@@ -43,7 +40,6 @@ public class NewsFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-        mBinding = DataBindingUtil.bind(rootView);
         mBinding.viewPager.setAdapter(mAdapter);
         mBinding.tabLayout.setupWithViewPager(mBinding.viewPager);
     }

@@ -25,6 +25,7 @@ public interface NewsListContract {
     interface Presenter extends IPresenter {
         /**
          * 请求对应类型的新闻数据
+         *
          * @param type
          * @param isRefresh 是否为主动刷新
          */

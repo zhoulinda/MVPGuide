@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.linda.mvpguide.R;
 import com.linda.mvpguide.app.AppApplication;
-import com.linda.mvpguide.utils.NetUtils;
+import com.linda.mvpguide.utils.NetUtil;
 
 public class EmptyLayout extends LinearLayout {
 
@@ -73,7 +73,7 @@ public class EmptyLayout extends LinearLayout {
 
             case NETWORK_ERROR:
                 mErrorState = NETWORK_ERROR;
-                if (!NetUtils.isNetworkAvailable(AppApplication.getContext())) {
+                if (!NetUtil.isNetworkAvailable(AppApplication.getContext())) {
                     img.setBackgroundResource(R.drawable.icon_net_error);
                     text.setText(R.string.network_anomalies);
                 } else {

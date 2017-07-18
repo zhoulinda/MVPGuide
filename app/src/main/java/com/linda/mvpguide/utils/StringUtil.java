@@ -24,17 +24,23 @@ public class StringUtil {
 
 
     /**
-     * 转换成Utf_8
+     * 转换格式
      *
      * @param s
+     * @param enc
      * @return
      */
-    public static String decode(String s) {
+    public static String decode(String s, String enc) {
         try {
-            return URLDecoder.decode(s == null ? "" : s, "utf-8");
+            return URLDecoder.decode(s == null ? "" : s, enc);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         return "";
+    }
+
+
+    public static String decode(String s) {
+        return decode(s, "utf-8");
     }
 }

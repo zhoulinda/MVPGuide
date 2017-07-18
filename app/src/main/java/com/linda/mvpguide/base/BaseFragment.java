@@ -1,6 +1,9 @@
 package com.linda.mvpguide.base;
 
+import android.app.Activity;
 import android.content.Context;
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -19,11 +22,13 @@ import com.trello.rxlifecycle2.components.support.RxFragment;
  * 邮箱：
  */
 
-public abstract class BaseFragment extends RxFragment implements IView{
+public abstract class BaseFragment<E extends ViewDataBinding> extends RxFragment implements IView {
 
     protected final String TAG = this.getClass().getName();
     protected View rootView;
     protected Context mContext;
+    protected Activity mActivity;
+    protected E mBinding;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +44,7 @@ public abstract class BaseFragment extends RxFragment implements IView{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         initInjector();
         rootView = inflater.inflate(getLayoutResId(), container, false);
+        mBinding =DataBindingUtil.bind(rootView);
         initView();
         initData();
         return rootView;
@@ -75,6 +81,7 @@ public abstract class BaseFragment extends RxFragment implements IView{
     public void onAttach(Context context) {
         super.onAttach(context);
         mContext = context;
+        mActivity = (Activity) context;
     }
 
 

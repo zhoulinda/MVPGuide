@@ -11,4 +11,5 @@
     <string name="pic">图片</string>
     <string name="video">视频</string>
     <string name="setting">设置</string>
+    <string name="news_detail_picture">news_detail_picture</string>
 </resources>

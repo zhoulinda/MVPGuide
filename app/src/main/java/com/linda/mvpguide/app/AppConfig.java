@@ -13,4 +13,6 @@ public interface AppConfig {
     String NEWS_TYPE_KEY = "news_type_key";
 
     String NEWS_DETAIL_URL = "news_detail_url";
+
+    String NEWS_PICTURE_URL = "news_picture_url";
 }
