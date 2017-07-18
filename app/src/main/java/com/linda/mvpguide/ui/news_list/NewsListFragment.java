@@ -5,9 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
-import android.view.View;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.linda.mvpguide.R;
 import com.linda.mvpguide.adapter.NewsListAdapter;
 import com.linda.mvpguide.app.AppConfig;
@@ -27,7 +25,7 @@ import javax.inject.Inject;
 
 public class NewsListFragment extends BaseFrameFragment<NewsListPresenter, FragmentNewsListBinding>
         implements NewsListContract.View, SwipeRefreshLayout.OnRefreshListener,
-        BaseQuickAdapter.OnItemClickListener {
+        NewsListAdapter.OnItemClickListener {
 
     private String type;
 
@@ -92,9 +90,9 @@ public class NewsListFragment extends BaseFrameFragment<NewsListPresenter, Fragm
     }
 
     @Override
-    public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+    public void onItemClick(int position) {
         Intent intent = new Intent(mContext, NewsDetailActivity.class);
-        intent.putExtra(AppConfig.NEWS_DETAIL_URL, ((News.ResultBean.DataBean) adapter.getData()
+        intent.putExtra(AppConfig.NEWS_DETAIL_URL, (mAdapter.getData()
                 .get(position)).getUrl());
         startActivity(intent);
     }

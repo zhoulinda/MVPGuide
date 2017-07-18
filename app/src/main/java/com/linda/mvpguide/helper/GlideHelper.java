@@ -1,5 +1,6 @@
 package com.linda.mvpguide.helper;
 
+import android.databinding.BindingAdapter;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -10,7 +11,7 @@ import com.bumptech.glide.Glide;
 
 public class GlideHelper {
 
-//    @BindingAdapter("bind:bind:roundImage")
+    @BindingAdapter("bind:image")
     public static void loadUrl(ImageView view, String url) {
         Glide.with(view.getContext())
                 .load(url)

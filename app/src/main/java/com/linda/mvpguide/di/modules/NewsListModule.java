@@ -25,7 +25,7 @@ public class NewsListModule {
     @FragmentScope
     @Provides
     NewsListAdapter provideNewsListPagerAdapter() {
-        return new NewsListAdapter(mView.getContext());
+        return new NewsListAdapter();
     }
 
     @FragmentScope
